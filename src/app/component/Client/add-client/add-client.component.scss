@@ -1,0 +1,23 @@
+.nav-item {
+    display: inline-block; /* Allow side-by-side navigation items */
+    margin-right: 4rem;
+    background-color: #27b964;
+    border-radius: 10px;
+    margin-top: 25px;
+  
+    text-align: center;
+    height: 30px; 
+
+    
+  }
+  
+  .nav-item.active .nav-link {
+    font-weight: bold; /* Bold the active link for emphasis */
+    color: #3d8ee4; /* Change active link color (adjust as needed) */
+  }
+  
+  .nav-link {
+    color: #333; /* Set default link color */
+    text-decoration: none; /* Remove underline */
+    padding: 0.5rem 1rem; /* Add some padding for visual appeal */
+  }

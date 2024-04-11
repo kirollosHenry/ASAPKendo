@@ -1,0 +1,61 @@
+ 
+ 
+ <kendo-grid [data]="data"
+[loading]="loading"
+[pageable]="true"
+[pageSize]="state.take"
+[skip]="state.skip"
+[sortable]="true"
+(dataStateChange)="dataStateChange($event)"
+[kendoGridReactiveEditing]="createFormGroup" [kendoGridInCellEditing]="createFormGroup">
+<ng-template kendoGridToolbarTemplate>
+  <button kendoGridAddCommand>Add new</button>
+</ng-template>
+  <kendo-grid-column field="clientId" title="ID" > </kendo-grid-column>
+
+  <kendo-grid-column field="firstName" title="FirstName">
+    <ng-template kendoGridEditTemplate let-dataItem="dataItem" [editable]="'inline'">
+      <input kendoTextBox [(ngModel)]="dataItem.firstName" required>
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column field="lastName" title="LastName">
+    <ng-template kendoGridEditTemplate let-dataItem="dataItem" [editable]="'inline'">
+      <input kendoTextBox [(ngModel)]="dataItem.lastName" required>
+    </ng-template>
+</kendo-grid-column>
+  
+  <kendo-grid-column field="phoneNumber" title="PhoneNumber"> 
+    <ng-template kendoGridEditTemplate let-dataItem="dataItem" [editable]="'inline'">
+      <input kendoTextBox [(ngModel)]="dataItem.phoneNumber" required>
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column field="email" title="Email">
+    <ng-template kendoGridEditTemplate let-dataItem="dataItem" [editable]="'inline'">
+      <input kendoTextBox [(ngModel)]="dataItem.email" required>
+    </ng-template> 
+  </kendo-grid-column>
+
+    <kendo-grid-command-column title="command" [width]="220">
+      <ng-template kendoGridCellTemplate let-isNew="isNew" let-dataItem="dataItem">
+        <button kendoGridEditCommand [primary]="true" (click)="edit(dataItem)">Edit</button>
+        <button kendoGridRemoveCommand (click)="remove(dataItem.clientId)">Remove</button>
+        <button kendoGridSaveCommand [disabled]="formGroup.invalid">
+          {{ isNew ? "Add" : "Update" }}
+        </button>
+        <button kendoGridCancelCommand>
+          {{ isNew ? "Discard changes" : "Cancel" }}
+        </button>
+      </ng-template>
+    </kendo-grid-command-column>
+</kendo-grid>
+ 
+
+
+
+
+
+
+
+

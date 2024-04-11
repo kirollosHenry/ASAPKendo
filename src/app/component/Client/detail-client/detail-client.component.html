@@ -1,0 +1,53 @@
+<div class="container">
+
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <kendo-formfield>
+      <input type="text" id="firstName" name="firstName" formControlName="firstName" required>
+      @if( clientForm.get('firstName')?.valid){
+      <label>
+        {{clientForm.get('firstName')?.errors}}
+    </label>
+  }
+</kendo-formfield>
+    </div>
+
+    
+  <div class="form-group">
+    <label for="lastName">Last Name:</label>
+    <kendo-formfield>
+      <input type="text" id="lastName" name="lastName" formControlName="lastName" required>
+    </kendo-formfield>
+  </div>
+  
+  <div class="form-group">
+    <label for="phoneNumber">Phone Number:</label>
+    <kendo-formfield>
+      <input type="tel" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber" required>
+    </kendo-formfield>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <kendo-formfield>
+      <input type="email" id="email" name="email" formControlName="email" required>
+    </kendo-formfield>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add</button>
+  </form> 
+  @if(userInputSummary!=='' ){
+    <div class="summary" >
+   
+      <p>{{ userInputSummary }}</p>
+    </div>
+  }
+</div>
+
+
+
+
+
+  
